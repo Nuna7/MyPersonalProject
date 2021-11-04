@@ -1,0 +1,33 @@
+<div class="container"
+    fxLayout="row wrap"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0" >
+
+    <ng-container> 
+      <div fxFlex="29%" *ngFor="let w of articles" [@flyInOut]>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                  <h3>{{w.name | uppercase}}</h3>
+              </mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="w.urlToImage" height="300px">
+            <mat-card-content>
+              <p class="paragraph">{{w.title}} </p>
+              <button mat-button (click)="got(''+w.url+'')">Read More..</button>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div [hidden]="articles||errMsg" id="spinner">
+          <mat-spinner>Loading. . . . Please Wait</mat-spinner>
+        </div>
+        <div *ngIf="errMsg" id="error">
+          <h2>Error</h2>
+          <h1>{{errMsg}}</h1>
+      </div>
+    </ng-container>
+</div>
+

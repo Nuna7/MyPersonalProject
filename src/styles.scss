@@ -1,0 +1,28 @@
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+.container{
+  margin: 0;
+  display: flex;
+}
+body,html{
+  height: 100%;
+}
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Roboto,sans-serif;
+}
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+  margin: 0px auto;
+  padding: $pad-up-down $pad-left-right;
+}
+.expand{
+  border: 1px solid rgb(185, 181, 181);
+  z-index: 1;
+  transform: scale(1.01);
+}
+

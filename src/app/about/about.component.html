@@ -1,0 +1,46 @@
+<div class="container"
+    fxLayout="column"
+    fxLayoutGap = "10px"
+    fxLayout.sm="column">
+    <div fxFlex>
+        <h1>Hi...Thanks For Visting News of the World</h1>
+        <hr>
+        <h2>News of the World was created by a Self-taught Teenage Web Developer</h2>
+        <h3>It was created by using the combination of the Newsapi and Angular Framework</h3>   
+    </div>
+    <div fxFlex id="description">
+        <p id="description">This website takes news from different source of media by using the Newsapi. Due to the limit of 50 request
+            by one developer per day , the news in this website won't be available for 24/7. I honestly asked
+            you for apologizes due to this inconvenient and also request not to expect this website to be like
+            other great website. This website is coded by a self-taught developer who is very newbie in web developing.
+         </p>
+    </div>
+    <div>
+        <h3 id="footnote">News showing in this website is only news of Today</h3>
+    </div>
+    <div fxFlex>
+        <h1 id="feedbackheader">Send us Feedback</h1>
+        <form novalidate [formGroup]="feedbackForm" id="form" class="form-size" #fform="ngForm" (ngSubmit)="onSubmit()">
+            <p >
+                <mat-form-field class="half-width" class="col-sm-12 col-xs-12 col-md-12" >
+                    <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+                    <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="half-width" class="col-sm-12 col-xs-12">
+                    <input matInput formControlName="lastname" placeholder="Last Name" type="text">
+                  </mat-form-field>
+                  <mat-form-field class="half-width" class="col-sm-12 col-xs-12">
+                    <input matInput formControlName="email" placeholder="Email" type="email">
+                  </mat-form-field>
+            </p>
+           
+            <p>
+                <mat-form-field class="full-width">
+                    <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12 required></textarea>
+                    <mat-error *ngIf="formErrors.message"></mat-error>
+                  </mat-form-field>
+            </p>
+            <button type="submit"  [disabled]="feedbackForm.invalid" mat-button>Submit</button>
+        </form>
+    </div>
+</div>

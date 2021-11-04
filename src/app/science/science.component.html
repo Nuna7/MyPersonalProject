@@ -1,0 +1,31 @@
+<div class="container"
+    fxLayout="row wrap"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+
+    <div fxFlex="29%" *ngFor="let i of Sciencearticles" @flyInOut>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+              <h3>{{i.name | uppercase}}</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="i.urlToImage" height="300px">
+        <mat-card-content>
+          <p>{{i.title}} </p>
+          <button mat-button (click)="got(''+i.url+'')">Read More..</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div [hidden]="Sciencearticles||errMsg" id="spinner">
+      <mat-spinner>Loading. . . . Please Wait</mat-spinner>
+    </div>
+    <div *ngIf="errMsg" id="error">
+      <h2>Error</h2>
+      <h1>{{errMsg}}</h1>
+  </div>
+</div>
+

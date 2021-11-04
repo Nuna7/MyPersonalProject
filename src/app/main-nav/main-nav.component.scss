@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+#home-header{
+  background-color: rgb(235, 21, 21);
+  color: white;
+}
+#sidenav-header{
+  background-color:rgb(194, 17, 17);
+  color: white;
+}
+#nav-list{
+  font-family: sans-serif;
+}
+.active{
+  background: rgb(226, 221, 221);
+}
+button{
+  background-color: red;
+  color: white;
+}

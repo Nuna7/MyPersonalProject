@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar id="sidenav-header"><h1>Some News</h1></mat-toolbar>
+    <mat-nav-list id="nav-list">
+      <a mat-button routerLink='/home' routerLinkActive='active'><h2>Home</h2> </a>
+      <a mat-button routerLink='/entertainment' routerLinkActive='active'><h2>Entertainment</h2></a>
+      <a mat-button routerLink='/business' routerLinkActive='active'><h2>Business</h2></a>
+      <a mat-button routerLink='/science' routerLinkActive='active'><h2>Science</h2> </a>
+      <a mat-button routerLink='/about' routerLinkActive='active'><h2>About</h2> </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar id="home-header">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon" class="material-icons-outlined">list</mat-icon>
+      </button>
+        <h1>News Of The World</h1>
+        <span class="flex-spacer"></span>
+        <h1>{{date|date}}</h1>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
